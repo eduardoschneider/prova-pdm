@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Prova</string>
+    <string name="list_denuncia">Listar Denuncias</string>
+    <string name="new_denuncia">Nova Denuncia</string>
+    <string name="save">Salvar</string>
+    <string name="first_name">Nome</string>
+    <string name="data">Data</string>
+    <string name="phone_number">Telefone</string>
+    <string name="contact_created">Contato criado.</string>
+    <string name="all_fields_must_be_filled">Todos os campos deverão ser preenchidos</string>
+    <string name="remove">Remover Contato</string>
+    <string name="are_you_sure_remove">Tem certeza que deseja remover o(s) contato(s) selecionado(s)?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="delete">Deletar</string>
+    <string name="statitics">Estatisticas</string>
+    <string name="descricao">Descricao</string>
+    <string name="signup">Sua conta é válida até o app fechar.</string>
+</resources>

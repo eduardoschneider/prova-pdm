@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BEF0EB"
+    android:backgroundTint="#BEF0EB">
+
+    <ScrollView
+        android:layout_width="406dp"
+        android:layout_height="638dp"
+        android:layout_marginBottom="8dp"
+        android:background="#BEF0EB"
+        android:backgroundTint="#BEF0EB"
+        app:layout_constraintBottom_toTopOf="@+id/btnRemoveContact"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#BEF0EB"
+            android:backgroundTint="#BEF0EB"
+            android:orientation="vertical"
+            tools:context=".ShowReportActivity">
+
+            <Button
+                android:id="@+id/btnRemoveContact3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#62DB66"
+                android:backgroundTint="#C0FCC3"
+                android:onClick="onClickSaveContact"
+                android:text="@string/save"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/imgPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="222dp"
+                android:background="#BEF0EB"
+                android:backgroundTint="#BEF0EB"
+                android:scaleType="centerCrop"
+                app:srcCompat="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/txtLabelDescricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#BEF0EB"
+                android:backgroundTint="#BEF0EB"
+                android:padding="3dp"
+                android:text="@string/descricao"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/txtShowDescricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#BEF0EB"
+                android:backgroundTint="#BEF0EB"
+                android:padding="3dp"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/txtLabelNatureza"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#BEF0EB"
+                android:backgroundTint="#BEF0EB"
+                android:padding="3dp"
+                android:text="@string/data"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/txtShowNatureza"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#BEF0EB"
+                android:backgroundTint="#BEF0EB"
+                android:padding="3dp"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/txtLabelData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#BEF0EB"
+                android:backgroundTint="#BEF0EB"
+                android:padding="3dp"
+                android:text="@string/phone_number"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/txtShowData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#BEF0EB"
+                android:backgroundTint="#BEF0EB"
+                android:padding="3dp"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/txtLabelTipo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#BEF0EB"
+                android:backgroundTint="#BEF0EB"
+                android:padding="3dp"
+                android:text="@string/tipo"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/txtShowTipo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#BEF0EB"
+                android:backgroundTint="#BEF0EB"
+                android:padding="3dp"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnRemoveContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#F77171"
+        android:onClick="onClickRemoveContact"
+        android:text="@string/remove"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
