@@ -14,7 +14,7 @@
         android:layout_marginBottom="8dp"
         android:background="#BEF0EB"
         android:backgroundTint="#BEF0EB"
-        app:layout_constraintBottom_toTopOf="@+id/btnRemoveContact"
+        app:layout_constraintBottom_toTopOf="@+id/btnRemoveReport"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,7 +28,7 @@
             tools:context=".ShowReportActivity">
 
             <Button
-                android:id="@+id/btnRemoveContact3"
+                android:id="@+id/btnRemoveReport3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -36,7 +36,7 @@
                 android:layout_marginBottom="8dp"
                 android:background="#62DB66"
                 android:backgroundTint="#C0FCC3"
-                android:onClick="onClickSaveContact"
+                android:onClick="onClickSaveReport"
                 android:text="@string/save"
                 android:textSize="24sp" />
 
@@ -149,14 +149,14 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/btnRemoveContact"
+        android:id="@+id/btnRemoveReport"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="#F77171"
-        android:onClick="onClickRemoveContact"
+        android:onClick="onClickRemoveReport"
         android:text="@string/remove"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

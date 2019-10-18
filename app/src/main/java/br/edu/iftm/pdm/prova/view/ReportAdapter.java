@@ -14,14 +14,14 @@ import br.edu.iftm.pdm.prova.model.Report;
 public class ReportAdapter extends RecyclerView.Adapter<ReportViewHolder> {
 
     private ArrayList<Report> reports;
-    private OnContactClickListener listener;
+    private OnReportClickListener listener;
 
-    public interface OnContactClickListener {
-        void onContactClick(Report report);
-        void onLongContactClick(Report report);
+    public interface OnReportClickListener {
+        void onReportClick(Report report);
+        void onLongReportClick(Report report);
     }
 
-    public ReportAdapter(OnContactClickListener listener, ArrayList<Report> reports) {
+    public ReportAdapter(OnReportClickListener listener, ArrayList<Report> reports) {
         this.listener = listener;
         this.reports = reports;
     }
@@ -53,13 +53,13 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportViewHolder> {
 
     // --> implementacao de utilidades
 
-    public void removeContact(Report report) {
+    public void removeReport(Report report) {
         int position = this.reports.indexOf(report);
         this.reports.remove(position);
         this.notifyItemRemoved(position);
     }
 
-    public void removeSelectedContacts() {
+    public void removeSelectedReports() {
         Iterator<Report> iterator = this.reports.iterator();
         int position = 0;
         while(iterator.hasNext()) {

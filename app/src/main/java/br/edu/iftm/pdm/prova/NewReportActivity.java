@@ -61,14 +61,14 @@ public class NewReportActivity extends AppCompatActivity {
         String natureza = this.dropdown.getSelectedItem().toString();
         String data = this.etxtData.getText().toString();
         String tipo = this.dropdown2.getSelectedItem().toString();
-        saveContact(descricao, natureza, data, tipo);
+        saveReport(descricao, natureza, data, tipo);
     }
 
-    public void saveContact(String descricao, String natureza, String data, String tipo) {
+    public void saveReport(String descricao, String natureza, String data, String tipo) {
         if (!descricao.isEmpty() && !natureza.isEmpty() &&
                 !data.isEmpty() && !tipo.isEmpty()) {
             Report report = new Report(descricao, natureza, data, tipo, this.profilePicture);
-            DAOReport.getINSTANCE().addContact(report);
+            DAOReport.getINSTANCE().addReport(report);
             Toast.makeText(this, getString(R.string.contact_created), Toast.LENGTH_SHORT).show();
             finish();
         } else {
@@ -79,11 +79,11 @@ public class NewReportActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == REQUEST_CAMERA_CAPTURE && resultCode == RESULT_OK && data != null) {
-            setContactPhoto(data);
+            setReportPhoto(data);
         }
     }
 
-    private void setContactPhoto(@Nullable Intent data) {
+    private void setReportPhoto(@Nullable Intent data) {
         Bundle bundle = data.getExtras();
         if (bundle.containsKey("data")) {
             Object object = bundle.get("data");

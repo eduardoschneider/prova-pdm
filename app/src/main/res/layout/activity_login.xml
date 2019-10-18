@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#BEF0EB"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="#5F1616"
     android:fitsSystemWindows="true"
     tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#5F1616"
         android:orientation="vertical"
         android:paddingLeft="24dp"
         android:paddingTop="156dp"
         android:paddingRight="24dp">
 
         <!-- Email Label -->
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,11 +26,13 @@
             android:layout_marginBottom="8dp">
 
             <EditText
-                android:id="@+id/input_email"
+                android:id="@+id/etxtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#fff"
                 android:hint="Email"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="#fff" />
         </android.support.design.widget.TextInputLayout>
 
         <!-- Password Label -->
@@ -35,14 +40,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColor="#fff">
 
             <EditText
-                android:id="@+id/input_name"
+                android:id="@+id/etxtNome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#fff"
                 android:hint="Name"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="#FFFFFF" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatButton
@@ -51,18 +59,27 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
-            android:backgroundTint="#E29353"
+            android:backgroundTint="#B2000000"
+            android:onClick="onClickLogin"
             android:padding="12dp"
-            android:text="Login" />
+            android:text="Login"
+            android:textColor="#fff" />
 
         <TextView
             android:id="@+id/link_signup"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="361dp"
+            android:layout_height="41dp"
             android:layout_marginBottom="24dp"
             android:gravity="center"
             android:text="@string/signup"
+            android:textColor="#fff"
             android:textSize="16dip" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="449dp"
+            app:srcCompat="@drawable/communistchar" />
 
     </LinearLayout>
 </ScrollView>

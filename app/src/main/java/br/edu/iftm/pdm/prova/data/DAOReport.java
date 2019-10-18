@@ -25,13 +25,13 @@ public class DAOReport {
         return INSTANCE;
     }
 
-    public void addContact(Report report) {
+    public void addReport(Report report) {
         report.setId(this.serial++);
         this.reports.add(report);
         Collections.sort(this.reports);
     }
 
-    public void unselectAllContacts() {
+    public void unselectAllReports() {
         for (Report report : this.reports) {
             report.setSelected(false);
         }

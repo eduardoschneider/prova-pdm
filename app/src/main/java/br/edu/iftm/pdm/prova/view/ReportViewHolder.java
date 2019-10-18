@@ -14,9 +14,9 @@ public class ReportViewHolder extends RecyclerView.ViewHolder
     private TextView txtNatureza;
     private TextView txtData;
     private Report report;
-    private ReportAdapter.OnContactClickListener listener;
+    private ReportAdapter.OnReportClickListener listener;
 
-    public ReportViewHolder(ReportAdapter.OnContactClickListener listener,
+    public ReportViewHolder(ReportAdapter.OnReportClickListener listener,
                             @NonNull View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
@@ -41,13 +41,13 @@ public class ReportViewHolder extends RecyclerView.ViewHolder
 
     @Override
     public void onClick(View v) {
-        this.listener.onContactClick(this.report);
+        this.listener.onReportClick(this.report);
     }
 
     private void selectItem(){
         this.report.setSelected(!this.report.isSelected());
         this.itemView.setSelected(!this.itemView.isSelected());
-        this.listener.onLongContactClick(this.report);
+        this.listener.onLongReportClick(this.report);
     }
 
     @Override

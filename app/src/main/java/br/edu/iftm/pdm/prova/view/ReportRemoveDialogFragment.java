@@ -9,8 +9,8 @@ import br.edu.iftm.pdm.prova.R;
 
 public class ReportRemoveDialogFragment extends AppCompatDialogFragment {
 
-    public interface OnContactRemoveListener {
-        void onContactRemove();
+    public interface OnReportRemoveListener {
+        void onReportRemove();
     }
 
     @Override
@@ -20,9 +20,9 @@ public class ReportRemoveDialogFragment extends AppCompatDialogFragment {
                 .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if(getActivity() instanceof OnContactRemoveListener) {
-                            OnContactRemoveListener listener = (OnContactRemoveListener) getActivity();
-                            listener.onContactRemove();
+                        if(getActivity() instanceof OnReportRemoveListener) {
+                            OnReportRemoveListener listener = (OnReportRemoveListener) getActivity();
+                            listener.onReportRemove();
                         }
                     }
                 })

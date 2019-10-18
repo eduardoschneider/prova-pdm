@@ -12,10 +12,10 @@ import br.edu.iftm.pdm.prova.model.Report;
 import br.edu.iftm.pdm.prova.view.ReportRemoveDialogFragment;
 
 public class ShowReportActivity extends AppCompatActivity
-    implements ReportRemoveDialogFragment.OnContactRemoveListener {
+    implements ReportRemoveDialogFragment.OnReportRemoveListener {
 
-    public static final String contactKey = "ShowContactActvity.CONTACT";
-    public static final String deletionContact = "ShowContactActvity.REMOVED";
+    public static final String contactKey = "ShowReportActvity.CONTACT";
+    public static final String deletionReport = "ShowReportActvity.REMOVED";
     private TextView txtShowDescricao;
     private TextView txtShowNatureza;
     private TextView txtShowData;
@@ -47,13 +47,13 @@ public class ShowReportActivity extends AppCompatActivity
         }
     }
 
-    public void onClickRemoveContact(View view) {
+    public void onClickRemoveReport(View view) {
         ReportRemoveDialogFragment crdf = new ReportRemoveDialogFragment();
         crdf.show(getSupportFragmentManager(), "");
     }
 
 
-    public void onClickSaveContact(View view) {
+    public void onClickSaveReport(View view) {
         for(Report report : DAOReport.getINSTANCE().getReports()){
             if (report.getId() == this.report.getId()){
                 report.setDescricao(txtShowDescricao.getText().toString());
@@ -66,9 +66,9 @@ public class ShowReportActivity extends AppCompatActivity
     }
 
     @Override
-    public void onContactRemove() {
+    public void onReportRemove() {
         Intent output = new Intent();
-        output.putExtra(deletionContact, this.report);
+        output.putExtra(deletionReport, this.report);
         setResult(RESULT_OK, output);
         finish();
     }

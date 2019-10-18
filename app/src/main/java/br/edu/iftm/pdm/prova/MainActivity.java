@@ -21,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void onClickNewContact(View view) {
+    public void onClickNewReport(View view) {
 
         if (DAOUser.isAnyoneLogged()) {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, NewReportActivity.class);
             startActivity(intent);
         } else {
             Intent intent = new Intent(this, LoginActivity.class);
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onClickListContacts(View view) {
+    public void onClickListReports(View view) {
         Intent intent = new Intent(this, ListReportsActivity.class);
         startActivity(intent);
     }

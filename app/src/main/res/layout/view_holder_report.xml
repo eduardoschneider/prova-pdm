@@ -1,19 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:layout_marginBottom="8dp"
     android:background="@drawable/item_list"
-    android:layout_marginBottom="8dp">
+    android:orientation="vertical"
+    android:textAlignment="center">
 
-    <TextView
-        android:id="@+id/txtDescricao"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Fulano"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/cin" />
+
+        <TextView
+            android:id="@+id/txtDescricao"
+            android:layout_width="285dp"
+            android:layout_height="wrap_content"
+            android:text="Fulano"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtDescricao2"
+            android:layout_width="33dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#FF0707"
+            android:drawableTint="#F80B0B"
+            android:foregroundTint="#FF0000"
+            android:text="A"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,20 +53,23 @@
 
         <TextView
             android:id="@+id/txtNatureza"
-            android:layout_width="wrap_content"
+            android:layout_width="244dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="4dp"
-            android:text="da Silva Santos"
-            android:textSize="18sp" />
+            android:text="Depredação"
+            android:textColor="#fff"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/txtData"
-            android:layout_width="wrap_content"
+            android:layout_width="124dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/item_list_phone_number"
-            android:text="(34) 9 9874 1235"
-            android:textSize="18sp" />
+            android:text="21/04/1998"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="14sp" />
     </LinearLayout>
 </LinearLayout>

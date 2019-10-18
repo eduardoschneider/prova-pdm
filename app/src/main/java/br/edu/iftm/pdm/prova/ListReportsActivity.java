@@ -17,14 +17,14 @@ import br.edu.iftm.pdm.prova.view.ReportAdapter;
 import br.edu.iftm.pdm.prova.view.ReportRemoveDialogFragment;
 
 public class ListReportsActivity extends AppCompatActivity
-        implements ReportAdapter.OnContactClickListener,
-        ReportRemoveDialogFragment.OnContactRemoveListener,
+        implements ReportAdapter.OnReportClickListener,
+        ReportRemoveDialogFragment.OnReportRemoveListener,
         MenuItem.OnMenuItemClickListener {
 
     private ArrayList<Report> reports;
-    private RecyclerView rvContacts;
+    private RecyclerView rvReports;
     private ReportAdapter reportAdapter;
-    private static final int showContact = 1234;
+    private static final int showReport = 1234;
     private MenuItem trashItem;
     private int nSelected;
 
@@ -32,20 +32,20 @@ public class ListReportsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState != null)
-            this.nSelected = savedInstanceState.getInt("ListContactActivity.nSelected", 0);
+            this.nSelected = savedInstanceState.getInt("ListReportActivity.nSelected", 0);
         initialize();
     }
 
     private void initialize() {
         setContentView(R.layout.activity_list_reports);
-        this.rvContacts = findViewById(R.id.rvContacts);
+        this.rvReports = findViewById(R.id.rvReports);
         LinearLayoutManager linearLayoutManager =
                 new LinearLayoutManager(this);
-        this.rvContacts.setLayoutManager(linearLayoutManager);
-        this.rvContacts.setHasFixedSize(true);
+        this.rvReports.setLayoutManager(linearLayoutManager);
+        this.rvReports.setHasFixedSize(true);
         this.reports = DAOReport.getINSTANCE().getReports();
         this.reportAdapter = new ReportAdapter(this, this.reports);
-        this.rvContacts.setAdapter(this.reportAdapter);
+        this.rvReports.setAdapter(this.reportAdapter);
     }
 
     @Override
@@ -58,10 +58,10 @@ public class ListReportsActivity extends AppCompatActivity
     }
 
     @Override
-    public void onContactClick(Report report) {
+    public void onReportClick(Report report) {
         Intent intent = new Intent(this, ShowReportActivity.class);
         intent.putExtra(ShowReportActivity.contactKey, report);
-        startActivityForResult(intent, showContact);
+        startActivityForResult(intent, showReport);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class ListReportsActivity extends AppCompatActivity
     }
 
     @Override
-    public void onLongContactClick(Report report) {
+    public void onLongReportClick(Report report) {
         if (report.isSelected())
             this.nSelected++;
         else
@@ -87,16 +87,16 @@ public class ListReportsActivity extends AppCompatActivity
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("ListContactActivity.nSelected", this.nSelected);
+        outState.putInt("ListReportActivity.nSelected", this.nSelected);
     }
 
     @Override
-    public void onContactRemove() {
+    public void onReportRemove() {
         performDelete();
     }
 
     private void performDelete() {
-        this.reportAdapter.removeSelectedContacts();
+        this.reportAdapter.removeSelectedReports();
         this.trashItem.setVisible(false);
         this.nSelected = 0;
     }
@@ -110,7 +110,7 @@ public class ListReportsActivity extends AppCompatActivity
     }
 
     public void cancelSelection() {
-        DAOReport.getINSTANCE().unselectAllContacts();
+        DAOReport.getINSTANCE().unselectAllReports();
         this.reportAdapter.notifyDataSetChanged();
         this.trashItem.setVisible(false);
         this.nSelected = 0;
@@ -119,14 +119,14 @@ public class ListReportsActivity extends AppCompatActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         this.reportAdapter.notifyDataSetChanged();
-        if (requestCode == showContact && resultCode == RESULT_OK && data != null) {
-            deleteContact(data);
+        if (requestCode == showReport && resultCode == RESULT_OK && data != null) {
+            deleteReport(data);
         }
     }
 
-    private void deleteContact(@Nullable Intent data) {
-        Report report = data.getParcelableExtra(ShowReportActivity.deletionContact);
-        this.reportAdapter.removeContact(report);
+    private void deleteReport(@Nullable Intent data) {
+        Report report = data.getParcelableExtra(ShowReportActivity.deletionReport);
+        this.reportAdapter.removeReport(report);
         if (report.isSelected()) {
             this.nSelected--;
             if (this.nSelected > 0)

@@ -3,7 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="itemListBorder">#999999</color>
+    <color name="itemListBorder">#310000</color>
     <color name="itemListPressed">#00FF00</color>
     <color name="itemListSelected">#00BBFF</color>
     <color name="backgrounLabels">#EBEBEB</color>
