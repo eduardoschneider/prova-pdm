@@ -1,6 +1,10 @@
 package br.edu.iftm.pdm.prova;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,11 +25,15 @@ public class MainActivity extends AppCompatActivity implements MenuItem.OnMenuIt
 
     private MenuItem addItem;
     private int serial = 0;
+    private MediaPlayer mPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mPlayer = MediaPlayer.create(MainActivity.this, R.raw.hino);
+        mPlayer.start();
     }
 
     public void onClickNewReport(View view) {
@@ -52,6 +60,11 @@ public class MainActivity extends AppCompatActivity implements MenuItem.OnMenuIt
         startActivity(intent);
     }
 
+    public void onClickStatistics(View view){
+        Intent intent = new Intent(this, StatisticsActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
         ReportGenerateDummyDialogFragment crdf = new ReportGenerateDummyDialogFragment();
@@ -70,6 +83,13 @@ public class MainActivity extends AppCompatActivity implements MenuItem.OnMenuIt
         Collections.sort(DAOReport.getINSTANCE().getReports());
 
         DAOReport.getINSTANCE().setSerial(serial);
+    }
+
+    @Override
+    public void onDestroy(){
+        mPlayer.stop();
+        super.onDestroy();
+
     }
 
 }

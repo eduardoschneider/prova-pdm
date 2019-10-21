@@ -141,7 +141,7 @@
                     android:id="@+id/btnPickDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Pick Date" />
+                    android:text="@string/pick_date" />
             </LinearLayout>
 
             <TextView

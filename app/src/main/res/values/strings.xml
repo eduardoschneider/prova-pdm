@@ -11,7 +11,7 @@
     <string name="all_fields_must_be_filled">All fields must be filled.</string>
     <string name="remove">Remove Report</string>
     <string name="are_you_sure_remove">Are you sure you want to remove the selected report(s)?</string>
-    <string name="dummy_data">This will create new reports, are you sure?</string>
+    <string name="dummy_data">This will create new fake reports for demonstration, are you sure?</string>
     <string name="there_is_no_image">There is no image to be seen.</string>
     <string name="yes">Yes</string>
     <string name="ampliar">Click to see the full image.</string>
@@ -21,4 +21,5 @@
     <string name="first_name">Name</string>
     <string name="signup">Your account is valid until the app closes.</string>
     <string name="local">Building</string>
+    <string name="pick_date">Pick Date</string>
 </resources>

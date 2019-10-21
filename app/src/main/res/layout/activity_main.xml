@@ -63,7 +63,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="#80000000"
-        android:onClick="onClickListReports"
+        android:onClick="onClickStatistics"
         android:text="@string/statitics"
         android:textColor="#fff"
         android:textSize="15sp"

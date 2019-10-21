@@ -19,7 +19,8 @@
     <string name="there_is_no_image">Não há imagem cadastrada.</string>
     <string name="save_changes">Salvar Alterações</string>
     <string name="ampliar">Clique para ampliar a imagem.</string>
-    <string name="dummy_data">Isso irá apagar todos os reports e gerar novos, tem certeza?</string>
+    <string name="dummy_data">Esta ação irá provocar a criação de dados de relatos falsos para fins de demonstração de uso do aplicativo, deseja continuar?</string>
     <string name="report_created">Denúncia criada.</string>
     <string name="local">Bloco</string>
+    <string name="pick_date">Escolher</string>
 </resources>
