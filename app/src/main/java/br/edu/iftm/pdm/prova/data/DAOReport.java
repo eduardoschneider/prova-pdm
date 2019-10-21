@@ -7,12 +7,12 @@ import br.edu.iftm.pdm.prova.model.Report;
 public class DAOReport {
     private static DAOReport INSTANCE;
     private ArrayList<Report> reports;
+
     private long serial;
 
     private DAOReport() {
         this.reports = new ArrayList<>();
         this.serial = 0;
-        DummyData.generate(this.reports);
         for(Report report : this.reports) {
             report.setId(this.serial++);
         }
@@ -35,6 +35,10 @@ public class DAOReport {
         for (Report report : this.reports) {
             report.setSelected(false);
         }
+    }
+
+    public void setSerial(long serial) {
+        this.serial = serial;
     }
 
     public ArrayList<Report> getReports()

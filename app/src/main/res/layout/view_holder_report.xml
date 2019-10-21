@@ -32,7 +32,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtDescricao2"
+            android:id="@+id/txtTipo"
             android:layout_width="33dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

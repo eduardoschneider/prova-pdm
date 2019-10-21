@@ -36,11 +36,6 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportViewHolder> {
         return reportViewHolder;
     }
 
-    /*
-        O onBindViewHolder é aonde acontece a mágica da reciclagem.
-        O papel desse método é associar a ViewHolder ao item resgatado
-        na posição i da lista.
-     */
     @Override
     public void onBindViewHolder(@NonNull ReportViewHolder reportViewHolder, int i) {
         reportViewHolder.bind(this.reports.get(i));
@@ -50,8 +45,6 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportViewHolder> {
     public int getItemCount() {
         return this.reports.size();
     }
-
-    // --> implementacao de utilidades
 
     public void removeReport(Report report) {
         int position = this.reports.indexOf(report);

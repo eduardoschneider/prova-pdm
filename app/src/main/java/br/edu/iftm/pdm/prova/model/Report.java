@@ -1,9 +1,10 @@
 package br.edu.iftm.pdm.prova.model;
-
 import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Report implements Comparable<Report>, Parcelable {
@@ -13,7 +14,9 @@ public class Report implements Comparable<Report>, Parcelable {
     private String natureza;
     private String data;
     private String tipo;
-    private Bitmap profilePicture;
+    private Bitmap reportPhoto1;
+    private Bitmap reportPhoto2;
+    private Bitmap reportPhoto3;
     private boolean selected;
 
     public Report(String descricao, String natureza, String data, String tipo) {
@@ -24,12 +27,14 @@ public class Report implements Comparable<Report>, Parcelable {
         this.selected = false;
     }
 
-    public Report(String descricao, String natureza, String data, String tipo, Bitmap profilePicture) {
+    public Report(String descricao, String natureza, String data, String tipo, Bitmap reportPhoto1, Bitmap reportPhoto2, Bitmap reportPhoto3) {
         this.descricao = descricao;
         this.natureza = natureza;
         this.data = data;
         this.tipo = tipo;
-        this.profilePicture = profilePicture;
+        this.reportPhoto1 = reportPhoto1;
+        this.reportPhoto2 = reportPhoto2;
+        this.reportPhoto3 = reportPhoto3;
         this.selected = false;
     }
 
@@ -57,9 +62,13 @@ public class Report implements Comparable<Report>, Parcelable {
         this.id = id;
     }
 
-    public Bitmap getProfilePicture() {
-        return profilePicture;
+    public Bitmap getReportPhoto1() {
+        return reportPhoto1;
     }
+
+    public Bitmap getReportPhoto2() { return reportPhoto2; }
+
+    public Bitmap getReportPhoto3() { return reportPhoto3; }
 
     public boolean isSelected() {
         return selected;
@@ -85,9 +94,6 @@ public class Report implements Comparable<Report>, Parcelable {
         this.tipo = tipo;
     }
 
-
-    // ---> Equals
-
     @Override
     public boolean equals(Object obj) {
         if (obj == null) return false;
@@ -96,22 +102,27 @@ public class Report implements Comparable<Report>, Parcelable {
         return ((Report) obj).id == this.id;
     }
 
-    // ---> Comparable
     @Override
     public int compareTo(Report o) {
-        String nameThis = this.descricao + " " + this.natureza;
-        String nameOther = o.descricao + " " + o.natureza;
-        return nameThis.toUpperCase().compareTo(nameOther.toUpperCase());
+        try {
+            Date dateThis = new SimpleDateFormat("dd/MM/yyyy").parse(this.data);
+            Date dateOther = new SimpleDateFormat("dd/MM/yyyy").parse(o.data);
+            return dateThis.compareTo(dateOther);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
-    // ---> Parcelable
     private Report(Parcel in) {
         id = in.readLong();
         descricao = in.readString();
         natureza = in.readString();
         data = in.readString();
         tipo = in.readString();
-        profilePicture = in.readParcelable(Bitmap.class.getClassLoader());
+        reportPhoto1 = in.readParcelable(Bitmap.class.getClassLoader());
+        reportPhoto2 = in.readParcelable(Bitmap.class.getClassLoader());
+        reportPhoto3 = in.readParcelable(Bitmap.class.getClassLoader());
         selected = in.readInt() == 1;
     }
 
@@ -122,7 +133,9 @@ public class Report implements Comparable<Report>, Parcelable {
         dest.writeString(natureza);
         dest.writeString(data);
         dest.writeString(tipo);
-        dest.writeParcelable(profilePicture, 0);
+        dest.writeParcelable(reportPhoto1, 0);
+        dest.writeParcelable(reportPhoto2, 0);
+        dest.writeParcelable(reportPhoto3, 0);
         dest.writeInt((selected) ? 1 : 0);
     }
 

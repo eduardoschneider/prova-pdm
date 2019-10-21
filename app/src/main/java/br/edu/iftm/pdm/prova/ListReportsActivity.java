@@ -50,8 +50,8 @@ public class ListReportsActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_list_contact, menu);
-        this.trashItem = menu.findItem(R.id.actionDelete);
+        getMenuInflater().inflate(R.menu.menu_list_report, menu);
+        this.trashItem = menu.findItem(R.id.actionAdd);
         this.trashItem.setVisible(this.nSelected > 0);
         this.trashItem.setOnMenuItemClickListener(this);
         return super.onCreateOptionsMenu(menu);
@@ -60,7 +60,7 @@ public class ListReportsActivity extends AppCompatActivity
     @Override
     public void onReportClick(Report report) {
         Intent intent = new Intent(this, ShowReportActivity.class);
-        intent.putExtra(ShowReportActivity.contactKey, report);
+        intent.putExtra(ShowReportActivity.reportKey, report);
         startActivityForResult(intent, showReport);
     }
 

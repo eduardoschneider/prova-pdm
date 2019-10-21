@@ -11,8 +11,9 @@
         android:theme="@style/AppTheme">
         <activity android:name="br.edu.iftm.pdm.prova.ShowReportActivity"></activity>
         <activity android:name="br.edu.iftm.pdm.prova.NewReportActivity" />
-        <activity android:name="br.edu.iftm.pdm.prova.LoginActivity" />
+        <activity android:name="br.edu.iftm.pdm.prova.LoginActivity" android:noHistory="true"/>
         <activity android:name="br.edu.iftm.pdm.prova.ListReportsActivity" />
+        <activity android:name="br.edu.iftm.pdm.prova.ShowImageActivity" />
         <activity android:name="br.edu.iftm.pdm.prova.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

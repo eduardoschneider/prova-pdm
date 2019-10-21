@@ -4,6 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
 import br.edu.iftm.pdm.prova.R;
 import br.edu.iftm.pdm.prova.model.Report;
 
@@ -13,6 +16,7 @@ public class ReportViewHolder extends RecyclerView.ViewHolder
     private TextView txtDescricao;
     private TextView txtNatureza;
     private TextView txtData;
+    private TextView txtTipo;
     private Report report;
     private ReportAdapter.OnReportClickListener listener;
 
@@ -29,12 +33,14 @@ public class ReportViewHolder extends RecyclerView.ViewHolder
         this.txtDescricao = itemView.findViewById(R.id.txtDescricao);
         this.txtNatureza = itemView.findViewById(R.id.txtNatureza);
         this.txtData = itemView.findViewById(R.id.txtData);
+        this.txtTipo = itemView.findViewById(R.id.txtTipo);
     }
 
     public void bind(Report report) {
-        this.txtDescricao.setText(report.getDescricao());
+        this.txtDescricao.setText("Report " + report.getId());
         this.txtNatureza.setText(report.getNatureza());
         this.txtData.setText(report.getData());
+        this.txtTipo.setText(report.getTipo());
         this.report = report;
         this.itemView.setSelected(this.report.isSelected());
     }
