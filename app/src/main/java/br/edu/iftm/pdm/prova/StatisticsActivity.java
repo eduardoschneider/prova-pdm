@@ -132,7 +132,7 @@ public class StatisticsActivity extends AppCompatActivity {
         }
 
         if (localComMais == null)
-            this.txt01.setText("Não há dados para serem analisados.");
+            this.txt01.setText("Não há dados para serem analisados, ou não houve depredações.");
         else
             this.txt01.setText("O LOCAL COM MAIOR DEPREDACAO É O BLOCO " + localComMais + " COM UM TOTAL DE " + qtdeMais);
 
@@ -229,7 +229,7 @@ public class StatisticsActivity extends AppCompatActivity {
         }
 
         if (localComMais == null)
-            this.txt02.setText("Não há dados para serem analisados.");
+            this.txt02.setText("Não há dados para serem analisados, ou não houve usos indevidos/ilegais.");
         else
             this.txt02.setText("O LOCAL COM MAIOR USO INDEVIDO É O BLOCO " + localComMais + " COM UM TOTAL DE " + qtdeMais);
 
@@ -283,7 +283,7 @@ public class StatisticsActivity extends AppCompatActivity {
         }
 
         if (localComMais == null)
-            this.txt03.setText("Não há dados para serem analisados, ou nunca ocorreu nada.");
+            this.txt03.setText("Não há dados para serem analisados.");
         else
             this.txt03.setText("A NATUREZA MAIS APARENTE É " + localComMais.toUpperCase());
 
@@ -377,7 +377,7 @@ public class StatisticsActivity extends AppCompatActivity {
         }
 
         if (localComMais == null)
-            this.txt04.setText("Não há dados para serem analisados, ou nunca ocorreu nada.");
+            this.txt04.setText("Não há dados para serem analisados.");
         else
             this.txt04.setText("O LOCAL MAIS PROBLEMÁTICO É O BLOCO " + localComMais);
 
@@ -406,109 +406,84 @@ public class StatisticsActivity extends AppCompatActivity {
             String str[] = re.getData().split("/");
             int month = Integer.parseInt(str[1]);
             System.out.println("MEEEEEEEEEEEEEEEEEEEEEEEEEEES " + month);
-            switch (month) {
-                case 1: {
-                    this.a++;
-                    if (a > qtdeMais) {
-                        qtdeMais = a;
-                        mesMais = month;
-                    }
-                    break;
+            if (month == 1){
+                this.a++;
+                if (a > qtdeMais) {
+                    qtdeMais = a;
+                    mesMais = month;
                 }
-                case 2: {
-                    this.b++;
-                    if (b > qtdeMais) {
-                        qtdeMais = b;
-                        mesMais = month;
-                    }
-                    break;
+            } else if (month == 2){
+                this.b++;
+                if (b > qtdeMais) {
+                    qtdeMais = b;
+                    mesMais = month;
                 }
-                case 3: {
-                    this.c++;
-                    if (c > qtdeMais) {
-                        qtdeMais = c;
-                        mesMais = month;
-                    }
-                    break;
+            } else if (month == 3) {
+                this.c++;
+                if (c > qtdeMais) {
+                    qtdeMais = c;
+                    mesMais = month;
                 }
-                case 4: {
-                    this.d++;
-                    if (d > qtdeMais) {
-                        qtdeMais = d;
-                        mesMais = month;
-                    }
-                    break;
+            } else if (month == 4){
+                this.d++;
+                if (d > qtdeMais) {
+                    qtdeMais = d;
+                    mesMais = month;
                 }
-                case 5: {
-                    this.e++;
-                    if (e > qtdeMais) {
-                        qtdeMais = e;
-                        mesMais = month;
-                    }
-                    break;
+            } else if (month == 5){
+                this.e++;
+                if (e > qtdeMais) {
+                    qtdeMais = e;
+                    mesMais = month;
                 }
-                case 6: {
-                    this.f++;
-                    if (f > qtdeMais) {
-                        qtdeMais = f;
-                        mesMais = month;
-                    }
-                    break;
+            } else if (month == 6) {
+                this.f++;
+                if (f > qtdeMais) {
+                    qtdeMais = f;
+                    mesMais = month;
                 }
-                case 7: {
-                    this.g++;
-                    if (g > qtdeMais) {
-                        qtdeMais = g;
-                        mesMais = month;
-                    }
-                    break;
+            } else if (month == 7){
+                this.g++;
+                if (g > qtdeMais) {
+                    qtdeMais = g;
+                    mesMais = month;
                 }
-                case 8: {
-                    this.h++;
-                    if (h > qtdeMais) {
-                        qtdeMais = h;
-                        mesMais = month;
-                    }
-                    break;
+            } else if (month == 8){
+                this.h++;
+                if (h > qtdeMais) {
+                    qtdeMais = h;
+                    mesMais = month;
                 }
-                case 9: {
-                    this.i++;
-                    if (e > qtdeMais) {
-                        qtdeMais = e;
-                        mesMais = month;
-                    }
-                    break;
+            } else if (month == 9) {
+                this.i++;
+                if (i > qtdeMais) {
+                    qtdeMais = i;
+                    mesMais = month;
                 }
-                case 10: {
-                    this.j++;
-                    if (f > qtdeMais) {
-                        qtdeMais = f;
-                        mesMais = month;
-                    }
-                    break;
+            } else if (month == 10){
+                this.j++;
+                if (j > qtdeMais) {
+                    qtdeMais = j;
+                    mesMais = month;
                 }
-                case 11: {
-                    this.k++;
-                    if (g > qtdeMais) {
-                        qtdeMais = g;
-                        mesMais = month;
-                    }
-                    break;
+            } else if (month == 11){
+                this.k++;
+                if (k > qtdeMais) {
+                    qtdeMais = k;
+                    mesMais = month;
                 }
-                case 12: {
-                    this.l++;
-                    if (h > qtdeMais) {
-                        qtdeMais = h;
-                        mesMais = month;
-                    }
-                    break;
+            } else if (month == 12) {
+                this.l++;
+                if (l > qtdeMais) {
+                    qtdeMais = l;
+                    mesMais = month;
                 }
             }
         }
 
 
         if (mesMais == 0)
-            this.txt05.setText("Não há dados para serem analisados.");
+            this.txt05.setText("Não há dados para serem analisados, ou não houve depredações.");
         else
             this.txt05.setText("O MÊS COM MAIOR DEPREDAÇÃO É O MÊS DE " + getMes(mesMais).toUpperCase());
 

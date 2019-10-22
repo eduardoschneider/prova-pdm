@@ -22,4 +22,5 @@
     <string name="signup">Your account is valid until the app closes.</string>
     <string name="local">Building</string>
     <string name="pick_date">Pick Date</string>
+    <string name="click_to_select">Click to select an image.</string>
 </resources>

@@ -159,7 +159,7 @@ public class ShowReportActivity extends AppCompatActivity
                 report.setDescricao(txtShowDescricao.getText().toString());
                 report.setNatureza(this.dropdown.getSelectedItem().toString());
                 report.setData(etxtData.getText().toString());
-                report.setTipo(this.dropdown.getSelectedItem().toString());
+                report.setTipo(this.dropdown2.getSelectedItem().toString());
             }
         }
         super.onBackPressed();
