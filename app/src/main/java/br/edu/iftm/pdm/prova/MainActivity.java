@@ -13,6 +13,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 
 import br.edu.iftm.pdm.prova.data.DAOReport;
 import br.edu.iftm.pdm.prova.data.DAOUser;
@@ -31,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements MenuItem.OnMenuIt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         mPlayer = MediaPlayer.create(MainActivity.this, R.raw.hino);
         mPlayer.start();
     }

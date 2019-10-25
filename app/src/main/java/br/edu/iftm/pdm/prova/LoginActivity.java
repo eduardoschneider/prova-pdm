@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import br.edu.iftm.pdm.prova.data.DAOUser;
 
@@ -27,11 +28,16 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onClickLogin(View view) {
-        String nome = etxtNome.getText().toString();
-        String email = etxtEmail.getText().toString();
+        if (!etxtEmail.getText().toString().isEmpty() && !etxtNome.getText().toString().isEmpty()) {
+            String nome = etxtNome.getText().toString();
+            String email = etxtEmail.getText().toString();
 
-        DAOUser.getINSTANCE(nome, email);
-        Intent intent = new Intent(this, NewReportActivity.class);
-        startActivity(intent);
+            DAOUser.getINSTANCE(nome, email);
+            Toast.makeText(this, getString(R.string.welcome), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, NewReportActivity.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, getString(R.string.all_fields_must_be_filled), Toast.LENGTH_SHORT).show();
+        }
     }
 }

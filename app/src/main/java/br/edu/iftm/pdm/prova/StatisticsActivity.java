@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Locale;
+
 import br.edu.iftm.pdm.prova.data.DAOReport;
 import br.edu.iftm.pdm.prova.model.Report;
 
@@ -132,9 +134,9 @@ public class StatisticsActivity extends AppCompatActivity {
         }
 
         if (localComMais == null)
-            this.txt01.setText("Não há dados para serem analisados.");
+            this.txt01.setText(R.string.no_data);
         else
-            this.txt01.setText("O LOCAL COM MAIOR DEPREDACAO É O BLOCO " + localComMais + " COM UM TOTAL DE " + qtdeMais);
+            this.txt01.setText(getString(R.string.most_depred) + " " + localComMais + getString(R.string.amount) + " " + qtdeMais + " " + getString(R.string.ocurrency));
 
         localComMais = null;
         qtdeMais = 0;
@@ -153,7 +155,7 @@ public class StatisticsActivity extends AppCompatActivity {
         ArrayList<Report> reports = DAOReport.getINSTANCE().getReports();
 
         for (Report r : reports) {
-            if (r.getNatureza().equals("Uso Indevido/Ilegal")) {
+            if (r.getNatureza().equals(getString(R.string.option_3))) {
                 this.indevidos.add(r);
             }
         }
@@ -229,9 +231,9 @@ public class StatisticsActivity extends AppCompatActivity {
         }
 
         if (localComMais == null)
-            this.txt02.setText("Não há dados para serem analisados.");
+            this.txt02.setText(R.string.no_data);
         else
-            this.txt02.setText("O LOCAL COM MAIOR USO INDEVIDO É O BLOCO " + localComMais + " COM UM TOTAL DE " + qtdeMais);
+            this.txt02.setText(getString(R.string.most_bad_use) + " " + localComMais + getString(R.string.amount) + qtdeMais + " " + getString(R.string.ocurrency));
 
         localComMais = null;
         qtdeMais = 0;
@@ -262,7 +264,23 @@ public class StatisticsActivity extends AppCompatActivity {
                     }
                     break;
                 }
+                case "Illegal/Inappropriate Use": {
+                    this.a++;
+                    if (a > qtdeMais) {
+                        qtdeMais = a;
+                        localComMais = re;
+                    }
+                    break;
+                }
                 case "Depredação": {
+                    this.b++;
+                    if (b > qtdeMais) {
+                        qtdeMais = b;
+                        localComMais = re;
+                    }
+                    break;
+                }
+                case "Depredation": {
                     this.b++;
                     if (b > qtdeMais) {
                         qtdeMais = b;
@@ -278,14 +296,22 @@ public class StatisticsActivity extends AppCompatActivity {
                     }
                     break;
                 }
+                case "Malfunction": {
+                    this.c++;
+                    if (c > qtdeMais) {
+                        qtdeMais = c;
+                        localComMais = re;
+                    }
+                    break;
+                }
 
             }
         }
 
         if (localComMais == null)
-            this.txt03.setText("Não há dados para serem analisados, ou nunca ocorreu nada.");
+            this.txt03.setText(R.string.no_data);
         else
-            this.txt03.setText("A NATUREZA MAIS APARENTE É " + localComMais.toUpperCase());
+            this.txt03.setText(getString(R.string.most_nature) +" " + localComMais);
 
         localComMais = null;
         qtdeMais = 0;
@@ -377,9 +403,9 @@ public class StatisticsActivity extends AppCompatActivity {
         }
 
         if (localComMais == null)
-            this.txt04.setText("Não há dados para serem analisados, ou nunca ocorreu nada.");
+            this.txt04.setText(R.string.no_data);
         else
-            this.txt04.setText("O LOCAL MAIS PROBLEMÁTICO É O BLOCO " + localComMais);
+            this.txt04.setText(getString(R.string.most_trouble) + " " + localComMais);
 
         localComMais = null;
         qtdeMais = 0;
@@ -397,7 +423,7 @@ public class StatisticsActivity extends AppCompatActivity {
         ArrayList<Report> reports = DAOReport.getINSTANCE().getReports();
 
         for (Report r : reports) {
-            if (r.getNatureza().equals("Depredação")) {
+            if (r.getNatureza().equals(getString(R.string.option_1))) {
                 this.depredacoes.add(r);
             }
         }
@@ -405,7 +431,6 @@ public class StatisticsActivity extends AppCompatActivity {
         for (Report re : depredacoes) {
             String str[] = re.getData().split("/");
             int month = Integer.parseInt(str[1]);
-            System.out.println("MEEEEEEEEEEEEEEEEEEEEEEEEEEES " + month);
             switch (month) {
                 case 1: {
                     this.a++;
@@ -510,7 +535,7 @@ public class StatisticsActivity extends AppCompatActivity {
         if (mesMais == 0)
             this.txt05.setText("Não há dados para serem analisados.");
         else
-            this.txt05.setText("O MÊS COM MAIOR DEPREDAÇÃO É O MÊS DE " + getMes(mesMais).toUpperCase());
+            this.txt05.setText("O MÊS COM MAIOR DEPREDAÇÃO É O MÊS DE " + getMes(mesMais));
 
         mesMais = 0;
         qtdeMais = 0;
@@ -530,31 +555,60 @@ public class StatisticsActivity extends AppCompatActivity {
     }
 
     private String getMes(int mesMais) {
-        switch (mesMais) {
-            case 1:
-                return "Janeiro";
-            case 2:
-                return "Fevereiro";
-            case 3:
-                return "Março";
-            case 4:
-                return "Abril";
-            case 5:
-                return "Maio";
-            case 6:
-                return "Junho";
-            case 7:
-                return "Julho";
-            case 8:
-                return "Agosto";
-            case 9:
-                return "Setembro";
-            case 10:
-                return "Outubro";
-            case 11:
-                return "Novembro";
-            case 12:
-                return "Dezembro";
+        if (Locale.getDefault().getDisplayLanguage().equals("português")) {
+            switch (mesMais) {
+                case 1:
+                    return "Janeiro";
+                case 2:
+                    return "Fevereiro";
+                case 3:
+                    return "Março";
+                case 4:
+                    return "Abril";
+                case 5:
+                    return "Maio";
+                case 6:
+                    return "Junho";
+                case 7:
+                    return "Julho";
+                case 8:
+                    return "Agosto";
+                case 9:
+                    return "Setembro";
+                case 10:
+                    return "Outubro";
+                case 11:
+                    return "Novembro";
+                case 12:
+                    return "Dezembro";
+            }
+        } else {
+            switch (mesMais) {
+                case 1:
+                    return "January";
+                case 2:
+                    return "February";
+                case 3:
+                    return "March";
+                case 4:
+                    return "April";
+                case 5:
+                    return "May";
+                case 6:
+                    return "June";
+                case 7:
+                    return "July";
+                case 8:
+                    return "August";
+                case 9:
+                    return "September";
+                case 10:
+                    return "October";
+                case 11:
+                    return "November";
+                case 12:
+                    return "December";
+            }
         }
         return null;
     }

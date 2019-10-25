@@ -23,4 +23,15 @@
     <string name="report_created">Denúncia criada.</string>
     <string name="local">Bloco</string>
     <string name="pick_date">Escolher</string>
+    <string name="option_1">Depredação</string>
+    <string name="option_2">Mau Funcionamento</string>
+    <string name="option_3">Uso Indevido/Ilegal</string>
+    <string name="welcome">Bem-vindo!</string>
+    <string name="no_data">Não há dados para serem analisados.</string>
+    <string name="most_depred">O bloco com o maior número de depredações é:</string>
+    <string name="amount">" com uma quantidade de: "</string>
+    <string name="ocurrency">ocorrências.</string>
+    <string name="most_bad_use">O bloco com a maior quantidade de atividades ilegais ou inapropriadas é:</string>
+    <string name="most_nature">A natureza mais comum é:</string>
+    <string name="most_trouble">O bloco mais problemático é:</string>
 </resources>

@@ -22,4 +22,15 @@
     <string name="signup">Your account is valid until the app closes.</string>
     <string name="local">Building</string>
     <string name="pick_date">Pick Date</string>
+    <string name="option_1">Depredation</string>
+    <string name="option_2">Malfunction</string>
+    <string name="option_3">Illegal/Inappropriate Use</string>
+    <string name="welcome">Welcome!</string>
+    <string name="no_data">There\'s no data to be analyzed.</string>
+    <string name="most_depred">The building with the biggest number of depredation is:</string>
+    <string name="amount">with a amount of:</string>
+    <string name="ocurrency">ocurrencies.</string>
+    <string name="most_bad_use">The building with most amount of illegal or innapropriate activity is:</string>
+    <string name="most_nature">The most common type is:</string>
+    <string name="most_trouble">The most problematic building is:</string>
 </resources>
