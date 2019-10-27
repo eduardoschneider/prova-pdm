@@ -31,6 +31,10 @@ public class DAOReport {
         Collections.sort(this.reports);
     }
 
+    public void reorder(){
+        Collections.sort(this.reports);
+    }
+
     public void unselectAllReports() {
         for (Report report : this.reports) {
             report.setSelected(false);

@@ -136,8 +136,8 @@ public class ShowReportActivity extends AppCompatActivity
                 Calendar mcurrentTime = Calendar.getInstance();
                 int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 int minute = mcurrentTime.get(Calendar.MINUTE);
-                TimePickerDialog mTimePicker;
-                mTimePicker = new TimePickerDialog(ShowReportActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                TimePickerDialog timePicker;
+                timePicker = new TimePickerDialog(ShowReportActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         if (selectedHour < 10) {
@@ -154,8 +154,8 @@ public class ShowReportActivity extends AppCompatActivity
 
                     }
                 }, hour, minute, true);//Yes 24 hour time
-                mTimePicker.setTitle("Select Time");
-                mTimePicker.show();
+                timePicker.setTitle("Select Time");
+                timePicker.show();
 
             }
         });
@@ -202,6 +202,7 @@ public class ShowReportActivity extends AppCompatActivity
                 report.setTipo(this.dropdown2.getSelectedItem().toString());
             }
         }
+        DAOReport.getINSTANCE().reorder();
         super.onBackPressed();
     }
 
