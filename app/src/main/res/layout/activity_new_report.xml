@@ -7,156 +7,184 @@
     android:background="#5F1616"
     tools:context=".NewReportActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="392dp"
-        android:layout_height="703dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:orientation="vertical"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical"
+            android:scrollbars="vertical">
 
-            <ImageButton
-                android:id="@+id/imgBtnPhoto"
-                android:layout_width="wrap_content"
-                android:layout_height="101dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:layout_weight="1"
-                android:onClick="onClickTakePic"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/communistico" />
-
-            <ImageButton
-                android:id="@+id/imgBtnPhoto2"
-                android:layout_width="wrap_content"
-                android:layout_height="101dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:layout_weight="1"
-                android:onClick="onClickTakePic"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/communistico" />
-
-            <ImageButton
-                android:id="@+id/imgBtnPhoto3"
-                android:layout_width="wrap_content"
-                android:layout_height="101dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:layout_weight="1"
-                android:onClick="onClickTakePic"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/communistico" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/click_to_select"
-            android:textColor="#fff"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/tipo"
-            android:textColor="#fff"
-            android:textSize="24sp" />
-
-        <Spinner
-            android:id="@+id/spinnerTipo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/btn_dropdown"
-            android:backgroundTint="#EB550A0A"
-            android:spinnerMode="dropdown" />
-
-        <EditText
-            android:id="@+id/etxtDescricao"
-            android:layout_width="match_parent"
-            android:layout_height="104dp"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:hint="@string/descricao"
-            android:inputType="textMultiLine"
-            android:lines="8"
-            android:minLines="6"
-            android:scrollbars="vertical"
-            android:textColor="#fff"
-            android:textSize="24sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/etxtData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:enabled="false"
-                android:hint="@string/data"
-                android:inputType="none"
-                android:textColor="#fff"
-                android:textSize="24sp" />
-
-            <Button
-                android:id="@+id/btnPickDate"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/pick_date" />
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imgBtnPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="101dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:onClick="onClickTakePic"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/communistico" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnPhoto2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="101dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:onClick="onClickTakePic"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/communistico" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnPhoto3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="101dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:onClick="onClickTakePic"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/communistico" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/click_to_select"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="@string/tipo"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+
+            <Spinner
+                android:id="@+id/spinnerTipo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/btn_dropdown"
+                android:backgroundTint="#EB550A0A"
+                android:spinnerMode="dropdown" />
+
+            <EditText
+                android:id="@+id/etxtDescricao"
+                android:layout_width="match_parent"
+                android:layout_height="104dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="@string/descricao"
+                android:inputType="textMultiLine"
+                android:lines="8"
+                android:minLines="6"
+                android:scrollbars="vertical"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etxtData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:hint="@string/data"
+                    android:inputType="none"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btnPickDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pick_date" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etxtHour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:hint="@string/hour"
+                    android:inputType="none"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btnPickHour"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pick_hour" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="@string/local"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+
+            <Spinner
+                android:id="@+id/spinnerLocal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/btn_dropdown"
+                android:backgroundTint="#EB550A0A"
+                android:spinnerMode="dropdown" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#97E998"
+                android:onClick="onClickSave"
+                android:text="@string/save"
+                android:textSize="24sp" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/local"
-            android:textColor="#fff"
-            android:textSize="24sp" />
-
-        <Spinner
-            android:id="@+id/spinnerLocal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/btn_dropdown"
-            android:backgroundTint="#EB550A0A"
-            android:spinnerMode="dropdown" />
-
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="50dp"
-            android:backgroundTint="#97E998"
-            android:onClick="onClickSave"
-            android:text="@string/save"
-            android:textSize="24sp" />
-    </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

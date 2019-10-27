@@ -1,6 +1,7 @@
 package br.edu.iftm.pdm.prova;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
@@ -10,9 +11,11 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -29,11 +32,13 @@ public class ShowReportActivity extends AppCompatActivity
     public static final String reportKey = "ShowReportActvity.CONTACT";
     public static final String deletionReport = "ShowReportActvity.REMOVED";
     private TextView txtShowDescricao;
-    private TextView etxtData;
     private ImageView imgPhoto;
     private ImageView imgPhoto2;
     private ImageView imgPhoto3;
+    private EditText etxtData;
+    private EditText etxtHora;
     private Button btnPickDate;
+    private Button btnPickHour;
     private Report report;
     private Spinner dropdown;
     private Spinner dropdown2;
@@ -65,6 +70,8 @@ public class ShowReportActivity extends AppCompatActivity
 
         this.etxtData = findViewById(R.id.etxtData);
         this.btnPickDate = findViewById(R.id.btnPickDate);
+        this.etxtHora = findViewById(R.id.etxtHour);
+        this.btnPickHour = findViewById(R.id.btnPickHour);
         this.imgPhoto = findViewById(R.id.imgPhoto);
         this.imgPhoto2 = findViewById(R.id.imgPhoto2);
         this.imgPhoto3 = findViewById(R.id.imgPhoto3);
@@ -87,6 +94,7 @@ public class ShowReportActivity extends AppCompatActivity
             case "H": { this.dropdown2.setSelection(7); break;}
         }
         this.etxtData.setText(report.getData());
+        this.etxtHora.setText(report.getHora());
         if(this.report.getReportPhoto1() != null) {
             this.imgPhoto.setImageBitmap(this.report.getReportPhoto1());
         }
@@ -118,6 +126,37 @@ public class ShowReportActivity extends AppCompatActivity
                 new DatePickerDialog(ShowReportActivity.this, date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        btnPickHour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+                TimePickerDialog mTimePicker;
+                mTimePicker = new TimePickerDialog(ShowReportActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                        if (selectedHour < 10) {
+                            if (selectedMinute < 10)
+                                etxtHora.setText( "0" + selectedHour + ":" + "0" + selectedMinute);
+                            else
+                                etxtHora.setText( "0" + selectedHour + ":" + selectedMinute);
+                        } else {
+                            if (selectedMinute < 10)
+                                etxtHora.setText(selectedHour + ":" + "0" + selectedMinute);
+                            else
+                                etxtHora.setText(selectedHour + ":" + selectedMinute);
+                        }
+
+                    }
+                }, hour, minute, true);//Yes 24 hour time
+                mTimePicker.setTitle("Select Time");
+                mTimePicker.show();
+
             }
         });
     }
@@ -159,6 +198,7 @@ public class ShowReportActivity extends AppCompatActivity
                 report.setDescricao(txtShowDescricao.getText().toString());
                 report.setNatureza(this.dropdown.getSelectedItem().toString());
                 report.setData(etxtData.getText().toString());
+                report.setHora(etxtHora.getText().toString());
                 report.setTipo(this.dropdown2.getSelectedItem().toString());
             }
         }

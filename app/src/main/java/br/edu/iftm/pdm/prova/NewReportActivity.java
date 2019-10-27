@@ -1,6 +1,7 @@
 package br.edu.iftm.pdm.prova;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.provider.MediaStore;
@@ -14,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -30,7 +32,9 @@ public class NewReportActivity extends AppCompatActivity {
     private ImageButton imgBtnPhoto3;
     private EditText etxtDescricao;
     private EditText etxtData;
+    private EditText etxtHora;
     private Button btnPickDate;
+    private Button btnPickHour;
     private Spinner dropdown;
     private Spinner dropdown2;
     private Bitmap reportPhoto1;
@@ -52,10 +56,12 @@ public class NewReportActivity extends AppCompatActivity {
     public void initialize() {
         this.etxtDescricao = findViewById(R.id.etxtDescricao);
         this.etxtData = findViewById(R.id.etxtData);
+        this.etxtHora = findViewById(R.id.etxtHour);
         this.imgBtnPhoto = findViewById(R.id.imgBtnPhoto);
         this.imgBtnPhoto2 = findViewById(R.id.imgBtnPhoto2);
         this.imgBtnPhoto3 = findViewById(R.id.imgBtnPhoto3);
         this.btnPickDate = findViewById(R.id.btnPickDate);
+        this.btnPickHour = findViewById(R.id.btnPickHour);
 
         this.dropdown = findViewById(R.id.spinnerTipo);
         String[] items = new String[]{getString(R.string.option_1), getString(R.string.option_2), getString(R.string.option_3)};
@@ -91,6 +97,37 @@ public class NewReportActivity extends AppCompatActivity {
             }
         });
 
+        btnPickHour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+                TimePickerDialog mTimePicker;
+                mTimePicker = new TimePickerDialog(NewReportActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                        if (selectedHour < 10) {
+                            if (selectedMinute < 10)
+                                etxtHora.setText( "0" + selectedHour + ":" + "0" + selectedMinute);
+                            else
+                                etxtHora.setText( "0" + selectedHour + ":" + selectedMinute);
+                        } else {
+                            if (selectedMinute < 10)
+                                etxtHora.setText(selectedHour + ":" + "0" + selectedMinute);
+                            else
+                                etxtHora.setText(selectedHour + ":" + selectedMinute);
+                        }
+
+                    }
+                }, hour, minute, true);//Yes 24 hour time
+                mTimePicker.setTitle("Select Time");
+                mTimePicker.show();
+
+            }
+        });
+
         this.qualFoto = 0;
     }
 
@@ -113,14 +150,15 @@ public class NewReportActivity extends AppCompatActivity {
         String descricao = this.etxtDescricao.getText().toString();
         String natureza = this.dropdown.getSelectedItem().toString();
         String data = this.etxtData.getText().toString();
+        String hora = this.etxtHora.getText().toString();
         String tipo = this.dropdown2.getSelectedItem().toString();
-        saveReport(descricao, natureza, data, tipo);
+        saveReport(descricao, natureza, data, hora, tipo);
     }
 
-    public void saveReport(String descricao, String natureza, String data, String tipo) {
+    public void saveReport(String descricao, String natureza, String data, String hora, String tipo) {
         if (!descricao.isEmpty() && !natureza.isEmpty() &&
                 !data.isEmpty() && !tipo.isEmpty()) {
-            Report report = new Report(descricao, natureza, data, tipo, this.reportPhoto1, this.reportPhoto2, this.reportPhoto3);
+            Report report = new Report(descricao, natureza, data, hora, tipo, this.reportPhoto1, this.reportPhoto2, this.reportPhoto3);
             DAOReport.getINSTANCE().addReport(report);
             Toast.makeText(this, getString(R.string.report_created), Toast.LENGTH_SHORT).show();
             finish();

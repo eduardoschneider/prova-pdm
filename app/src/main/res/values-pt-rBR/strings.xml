@@ -36,4 +36,6 @@
     <string name="most_nature">A natureza mais comum é:</string>
     <string name="most_trouble">O bloco mais problemático é:</string>
     <string name="month_trouble">O mês com a maior quantidade de denúncias de depredação é:</string>
+    <string name="pick_hour">Escolher</string>
+    <string name="hour">Hora</string>
 </resources>

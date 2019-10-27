@@ -6,5 +6,5 @@
     <color name="itemListBorder">#310000</color>
     <color name="itemListPressed">#00FF00</color>
     <color name="itemListSelected">#00BBFF</color>
-    <color name="backgrounLabels">#EBEBEB</color>
+    <color name="backgrounLabels">#FAFAFA</color>
 </resources>

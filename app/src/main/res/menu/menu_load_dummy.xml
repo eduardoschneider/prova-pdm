@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/actionAdd"
-        android:icon="@android:drawable/ic_input_add"
+        android:icon="@drawable/communistchar"
         android:title="@string/delete"
         app:showAsAction="always" />
 </menu>

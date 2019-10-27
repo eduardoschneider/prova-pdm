@@ -108,7 +108,7 @@
                 android:padding="3dp"
                 android:text="@string/tipo"
                 android:textColor="#fff"
-                android:textSize="24sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <Spinner
@@ -135,13 +135,37 @@
                     android:inputType="none"
                     android:paddingLeft="15dp"
                     android:textColor="#fff"
-                    android:textSize="24sp" />
+                    android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/btnPickDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/pick_date" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etxtHour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:hint="@string/hour"
+                    android:inputType="none"
+                    android:paddingLeft="15dp"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btnPickHour"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pick_hour" />
             </LinearLayout>
 
             <TextView
@@ -156,7 +180,7 @@
                 android:padding="3dp"
                 android:text="@string/local"
                 android:textColor="#fff"
-                android:textSize="24sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <Spinner
@@ -179,7 +203,7 @@
                 android:padding="3dp"
                 android:text="@string/descricao"
                 android:textColor="#fff"
-                android:textSize="24sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -192,15 +216,15 @@
                 android:backgroundTint="#5F1616"
                 android:padding="3dp"
                 android:textColor="#fff"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
     </ScrollView>
 
     <Button
         android:id="@+id/btnRemoveReport"
-        android:layout_width="393dp"
-        android:layout_height="57dp"
+        android:layout_width="446dp"
+        android:layout_height="59dp"
         android:backgroundTint="#F77171"
         android:onClick="onClickRemoveReport"
         android:text="@string/remove"
@@ -212,7 +236,7 @@
 
     <Button
         android:id="@+id/btnSalvarAlteracoes"
-        android:layout_width="389dp"
+        android:layout_width="464dp"
         android:layout_height="50dp"
         android:layout_marginBottom="16dp"
         android:background="#62DB66"

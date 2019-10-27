@@ -35,4 +35,6 @@
     <string name="most_nature">The most common type is:</string>
     <string name="most_trouble">The most problematic building is:</string>
     <string name="month_trouble">The month with the most amount of depredation reports is:</string>
+    <string name="pick_hour">Pick Hour</string>
+    <string name="hour">Hour</string>
 </resources>

@@ -14,23 +14,26 @@ public class Report implements Comparable<Report>, Parcelable {
     private String natureza;
     private String data;
     private String tipo;
+    private String hora;
     private Bitmap reportPhoto1;
     private Bitmap reportPhoto2;
     private Bitmap reportPhoto3;
     private boolean selected;
 
-    public Report(String descricao, String natureza, String data, String tipo) {
+    public Report(String descricao, String natureza, String data, String hora, String tipo) {
         this.descricao = descricao;
         this.natureza = natureza;
         this.data = data;
+        this.hora = hora;
         this.tipo = tipo;
         this.selected = false;
     }
 
-    public Report(String descricao, String natureza, String data, String tipo, Bitmap reportPhoto1, Bitmap reportPhoto2, Bitmap reportPhoto3) {
+    public Report(String descricao, String natureza, String data, String hora, String tipo, Bitmap reportPhoto1, Bitmap reportPhoto2, Bitmap reportPhoto3) {
         this.descricao = descricao;
         this.natureza = natureza;
         this.data = data;
+        this.hora = hora;
         this.tipo = tipo;
         this.reportPhoto1 = reportPhoto1;
         this.reportPhoto2 = reportPhoto2;
@@ -52,6 +55,10 @@ public class Report implements Comparable<Report>, Parcelable {
 
     public String getData() {
         return data;
+    }
+
+    public String getHora() {
+        return hora;
     }
 
     public String getTipo() {
@@ -90,6 +97,10 @@ public class Report implements Comparable<Report>, Parcelable {
         this.data = data;
     }
 
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
@@ -105,8 +116,8 @@ public class Report implements Comparable<Report>, Parcelable {
     @Override
     public int compareTo(Report o) {
         try {
-            Date dateThis = new SimpleDateFormat("dd/MM/yyyy").parse(this.data);
-            Date dateOther = new SimpleDateFormat("dd/MM/yyyy").parse(o.data);
+            Date dateThis = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(this.data + " " + this.hora);
+            Date dateOther = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(o.data + " " + o.hora);
             return dateThis.compareTo(dateOther);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -119,6 +130,7 @@ public class Report implements Comparable<Report>, Parcelable {
         descricao = in.readString();
         natureza = in.readString();
         data = in.readString();
+        hora = in.readString();
         tipo = in.readString();
         reportPhoto1 = in.readParcelable(Bitmap.class.getClassLoader());
         reportPhoto2 = in.readParcelable(Bitmap.class.getClassLoader());
@@ -132,6 +144,7 @@ public class Report implements Comparable<Report>, Parcelable {
         dest.writeString(descricao);
         dest.writeString(natureza);
         dest.writeString(data);
+        dest.writeString(hora);
         dest.writeString(tipo);
         dest.writeParcelable(reportPhoto1, 0);
         dest.writeParcelable(reportPhoto2, 0);
