@@ -58,7 +58,7 @@ public class NewReportActivity extends AppCompatActivity {
         this.btnPickDate = findViewById(R.id.btnPickDate);
 
         this.dropdown = findViewById(R.id.spinnerTipo);
-        String[] items = new String[]{"Depredação", "Mal Funcionamento", "Uso Indevido/Ilegal"};
+        String[] items = new String[]{getString(R.string.option_1), getString(R.string.option_2), getString(R.string.option_3)};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, items);
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         dropdown.setAdapter(adapter);
